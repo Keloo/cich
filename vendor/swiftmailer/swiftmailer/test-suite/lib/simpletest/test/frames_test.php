@@ -367,7 +367,7 @@ class TestOfFramesetPageInterface extends UnitTestCase {
         $frame2 = new MockSimplePage();
         $frame2->setReturnValue(
                 'getUrlsByLabel',
-                array(new SimpleUrl('hello.blade.php')),
+                array(new SimpleUrl('index.blade.php')),
                 array('a'));
 
         $frameset = new SimpleFrameset(new MockSimplePage());
@@ -376,7 +376,7 @@ class TestOfFramesetPageInterface extends UnitTestCase {
 
         $expected1 = new SimpleUrl('goodbye.php');
         $expected1->setTarget(1);
-        $expected2 = new SimpleUrl('hello.blade.php');
+        $expected2 = new SimpleUrl('index.blade.php');
         $expected2->setTarget('Two');
         $this->assertEqual(
                 $frameset->getUrlsByLabel('a'),
