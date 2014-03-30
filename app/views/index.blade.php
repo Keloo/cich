@@ -2,40 +2,38 @@
 <html lang="en">
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{{ URL::asset('assets/css/bootstrap.css') }}">
-    <link rel="stylesheet" href="{{ URL::asset('assets/css/style.css') }}">
-    <script href="{{ URL::asset('assets/js/bootstrap.js') }}"></script>
+    <link href="assets/css/bootstrap.css" rel="stylesheet">
+    <link href="assets/css/style.css" rel="stylesheet">
+
+
     <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <script src="assets/js/bootstrap.js"></script>
 </head>
 <body>
-asdf
 <div class="header">
     <div class="container">
         <div class="header">
-            <div class="row text-right links">
-                <a href="#">Avize</a> |
-
-                <a href="#">Harta</a> |
-
-                <a href="#">Galerie</a> |
-
-                <a href="#">Informatii</a> |
-
-                <a href="#">Studenti</a> |
-
-                <a href="#">Contacte</a>
+            <div class="row">
+                <div class="col-md-offset-8 col-md-4 text-right links">
+                    <a href="#">Avize</a> |
+                    <a href="#">Harta</a> |
+                    <a href="#">Galerie</a> |
+                    <a href="#">Informatii</a> |
+                    <a href="#">Studenti</a> |
+                    <a href="#">Contacte</a>
+                </div>
             </div>
             <div class="row">
                 <div class="col-md-10">
                     <img src="{{ URL::asset('assets/images/header_logo.png') }}" title="CICH Logo" alt="CICH Logo" class="img-responsive"/>
                 </div>
                 <div class="col-md-2 text-right">
-                    <a href="#"><img src="{{ URL::asset('assets/images/ro.png') }}" /></a>
-                    <a href="#"><img src="{{ URL::asset('assets/images/en.png') }}" /></a>
+                    <a href="#">RO</a>
+                    <a href="#">EN</a>
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-7 col-md-offset-3 main-menu">
+                <div class="col-md-offset-3 col-md-8 main-menu text-center">
                     <ul class="nav nav-tabs">
                         <li><a href="#">Principala</a></li>
                         <li class="dropdown">
@@ -324,15 +322,19 @@ asdf
         <div class="row">
             <div class="col-md-3">
                 <img src="{{ URL::asset('assets/images/example.jpg') }}" alt="Example image" class="img-responsive">
+                <br/>
             </div>
             <div class="col-md-3">
                 <img src="{{ URL::asset('assets/images/example.jpg') }}" alt="Example image" class="img-responsive">
+                <br/>
             </div>
             <div class="col-md-3">
                 <img src="{{ URL::asset('assets/images/example.jpg') }}" alt="Example image" class="img-responsive">
+                <br/>
             </div>
             <div class="col-md-3">
                 <img src="{{ URL::asset('assets/images/example.jpg') }}" alt="Example image" class="img-responsive">
+                <br/>
             </div>
         </div>
         <br/>
