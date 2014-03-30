@@ -11,7 +11,16 @@
 |
 */
 
-Route::get('/', function()
-{
-	return View::make('index');
+Route::get('/', function() {
+    return View::make('index');
 });
+
+Route::get('/admin', function() {
+    return View::make('admin/index');
+});
+
+Route::get('/admin/login', function() {
+    return View::make('admin/login');
+});
+
+Route::post('/admin/login', 'AdminController@login');
