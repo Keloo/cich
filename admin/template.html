@@ -11,7 +11,11 @@
     <link rel="stylesheet" href="css/font-awesome.min.css">
     <link rel="stylesheet" href="css/main.css">
 
+   
+
+
     <script src="js/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script>
+    <script src="ckeditor/ckeditor.js"></script>
 </head>
 <body>
 
@@ -99,7 +103,7 @@
         <div class="well sidebar-nav">
             <ul class="nav nav-tabs nav-stacked">
                 <li class="nav-header">Navigation</li>
-                <li class="active"><a href="#">Link One</a></li>
+                <li class="active"><a href="#">Page Editor</a></li>
                 <li><a href="#">Link Two</a></li>
                 <li><a href="#">Link Three</a></li>
                 <li><a href="#">Link Four</a></li>
@@ -112,14 +116,18 @@
     <div class="span10 pull-left">
 
         <div class="well">
-            <h1>Hello, World!</h1>
+            <form action="sample_posteddata.php" method="post">
+                <p>
+                    <label for="editor">
+                        Editor:
+                    </label>
+                    <textarea class="ckeditor" cols="80" id="editor" name="editor1" rows="10"></textarea>
+                </p>
+                <p>
+                    <input type="submit" value="Submit">
+                </p>
+            </form>
 
-            <p>
-                A super admin interface for your projects !
-                For more information about usage, visit <a href="http://twitter.github.com/bootstrap/"
-                                                           target="_blank">Bootstrap</a><br><br>
-                <a class="btn btn-primary btn-large" href="layout-options.html">Layout Options &raquo;</a>
-            </p>
         </div>
 
     </div>
