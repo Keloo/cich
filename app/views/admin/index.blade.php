@@ -2,18 +2,17 @@
 <html class="no-js">
 <head>
     <meta charset="utf-8">
-    <title>SuperAdmin</title>
+    <title>CICH Admin</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width">
 
-    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/adm.bootstrap.min.css">
     <link rel="stylesheet" href="assets/css/bootstrap-responsive.min.css">
-    <link rel="stylesheet" href="assets/css/font-awesome.min.css">
     <link rel="stylesheet" href="assets/css/main.css">
 
 
-    <script src="assets/css/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script>
-    <script src="assets/css/ckeditor/ckeditor.js"></script>
+    <script src="assets/js/modernizr-2.6.2-respond-1.1.0.min.js"></script>
+    <script src="packages/ckeditor/ckeditor.js"></script>
 </head>
 <body>
 
@@ -26,7 +25,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </a>
-                <span class="brand">SuperAdmin</span>
+                <span class="brand">CICH Admin</span>
 
                 <div class="nav-collapse collapse">
 
@@ -142,8 +141,8 @@
 </footer>
 
 <script src="http://code.jquery.com/jquery-latest.min.js"></script>
-<script>window.jQuery || document.write('<script src="js/vendor/jquery-1.8.3.min.js"><\/script>')</script>
-<script src="js/vendor/bootstrap.min.js"></script>
+<script>window.jQuery || document.write('<script src="assets/js/jquery-1.8.3.min.js"><\/script>')</script>
+<script src="assets/js/bootstrap.min.js"></script>
 <script>
     // enable tooltips
     $(".tip").tooltip();

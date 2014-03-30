@@ -12,8 +12,11 @@
 */
 
 Route::get('/', function() {
+    //return View::make('page');
+    //return View::make('admin/index');
     return View::make('index');
 });
+
 
 Route::get('/admin', function() {
     return View::make('admin/index');
