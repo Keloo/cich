@@ -100,10 +100,7 @@
         <div class="well sidebar-nav">
             <ul class="nav nav-tabs nav-stacked">
                 <li class="nav-header">Navigation</li>
-                <li class="active"><a href="#">Page Editor</a></li>
-                <li><a href="#">Link Two</a></li>
-                <li><a href="#">Link Three</a></li>
-                <li><a href="#">Link Four</a></li>
+                <li class="active"><a href="#">Create new Page</a></li>
             </ul>
         </div>
     </div>
@@ -113,12 +110,12 @@
     <div class="span10 pull-left">
 
         <div class="well">
-            <form action="sample_posteddata.php" method="post">
+            <form action="admin/createPage" method="post">
                 <p>
                     <label for="editor">
                         Editor:
                     </label>
-                    <textarea class="ckeditor" cols="80" id="editor" name="editor1" rows="10"></textarea>
+                    <textarea class="ckeditor" cols="80" id="editor" name="pageText" rows="10"></textarea>
                 </p>
 
                 <p>
