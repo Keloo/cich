@@ -16,6 +16,12 @@ Route::get('/admin/login', function() {
     return View::make('admin/login');
 });
 
+Route::get('/admin/menu', function() {
+    return View::make('admin/menu');
+});
+
 Route::post('/admin/login', 'AdminController@login');
 
 Route::post('/admin/createPage', 'AdminController@createPage');
+
+Route::post('/admin/createMenu', 'AdminController@createMenu');

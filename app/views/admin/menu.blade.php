@@ -100,8 +100,8 @@
         <div class="well sidebar-nav">
             <ul class="nav nav-tabs nav-stacked">
                 <li class="nav-header">Navigation</li>
-                <li class="active"><a href="admin">Create new Page</a></li>
-                <li><a href="admin/menu">Create new Menu</a></li>
+                <li><a href="#">Create new Page</a></li>
+                <li class="active"><a href="#">Create new Menu</a></li>
             </ul>
         </div>
     </div>
@@ -111,12 +111,9 @@
     <div class="span10 pull-left">
 
         <div class="well">
-            <form action="admin/createPage" method="post">
+            <form action="admin/createMenu" method="post">
                 <p>
-                    <label for="editor">
-                        Editor:
-                    </label>
-                    <textarea class="ckeditor" cols="80" id="editor" name="pageText" rows="10"></textarea>
+                    <input name="menuName" type="text"/>
                 </p>
 
                 <p>

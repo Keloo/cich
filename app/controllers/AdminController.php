@@ -33,4 +33,20 @@ class AdminController extends BaseController {
         return Redirect::to('admin');
     }
 
+    /**
+     * @return mixed
+     */
+    public function createMenu() {
+        if (!Auth::check()) {
+            return Redirect::to('admin/login');
+        }
+
+        $menuName = Input::get('menuName');
+        $parentId = Input::get('parentId');
+
+        DB::insert("insert into menu (id, name, parent_id) values (?, ?, ?)", array(null, $menuName, $parentId));
+
+        return Redirect::to('admin');
+    }
+
 }
