@@ -8,8 +8,9 @@ Route::get('/page', function() {
     return View::make('page');
 });
 
-Route::get('/admin', array('before' => 'adminAuth', function() {
-    return View::make('admin/index');
+Route::get('/admin', array('before' => 'adminAuth', function () {
+    $adminController = new AdminController();
+    return $adminController->index();
 }));
 
 Route::get('/admin/login', function() {

@@ -126,6 +126,9 @@
 
         </div>
 
+        @foreach ($pages as $page)
+            {{ $page->text }}
+        @endforeach
     </div>
     <!--/span9-->
 

@@ -2,6 +2,17 @@
 
 class AdminController extends BaseController {
 
+    public function index() {
+        if (!Auth::check()) {
+            return Redirect::to('admin/login');
+        }
+
+        $data = [];
+        $data['pages'] = DB::select("select * from pages");
+
+        return View::make('admin/index', $data);
+    }
+
     /**
      * @return mixed
      */
@@ -48,5 +59,4 @@ class AdminController extends BaseController {
 
         return Redirect::to('admin');
     }
-
 }
