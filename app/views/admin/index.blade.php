@@ -102,6 +102,9 @@
                 <li class="nav-header">Navigation</li>
                 <li class="active"><a href="admin">Create new Page</a></li>
                 <li><a href="admin/menu">Create new Menu</a></li>
+                @foreach ($pages as $page)
+                <li><a href="/admin?action=edit&page={{ $page->id }}">{{ $page->text }}</a></li>
+                @endforeach
             </ul>
         </div>
     </div>
@@ -125,10 +128,6 @@
             </form>
 
         </div>
-
-        @foreach ($pages as $page)
-            {{ $page->text }}
-        @endforeach
     </div>
     <!--/span9-->
 
