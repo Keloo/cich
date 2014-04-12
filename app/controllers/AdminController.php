@@ -2,7 +2,24 @@
 
 class AdminController extends BaseController {
 
+    /**
+     * @return mixed
+     */
+    public function menu() {
+        if (!Auth::check()) {
+            return Redirect::to('admin/login');
+        }
 
+        $data = [];
+        $data['pages'] = DB::select("select * from pages");
+
+        return View::make('admin/menu', $data);
+    }
+
+    /**
+     * @param null $id
+     * @return mixed
+     */
     public function pageEdit($id = null) {
         if (!Auth::check()) {
             return Redirect::to('admin/login');

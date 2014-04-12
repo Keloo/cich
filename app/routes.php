@@ -18,7 +18,8 @@ Route::get('/admin/login', function() {
 });
 
 Route::get('/admin/menu', function() {
-    return View::make('admin/menu');
+    $adminController = new AdminController();
+    return $adminController->menu();
 });
 
 Route::get('/admin/edit/{id}', function($id) {
@@ -31,3 +32,5 @@ Route::post('/admin/login', 'AdminController@login');
 Route::post('/admin/createPage', 'AdminController@createPage');
 
 Route::post('/admin/createMenu', 'AdminController@createMenu');
+
+Route::post('/admin/editPage', 'AdminController@etidPage');

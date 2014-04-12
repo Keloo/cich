@@ -2,16 +2,16 @@
 
 @section('menu')
     <li class="nav-header">Navigation</li>
-    <li class="active"><a href="admin">Create new Page</a></li>
-    <li><a href="/admin/menu">Create new Menu</a></li>
+    <li class="active"><a href="{{ url('admin') }}">Create new Page</a></li>
+    <li><a href="{{ url('admin').'/menu' }}">Create new Menu</a></li>
     @foreach ($pages as $page)
-        <li><a href="/admin/edit/{{ $page->id }}">{{ $page->text }}</a></li>
+        <li><a href="{{ url('admin').'/edit/'.$page->id }}">{{ $page->text }}</a></li>
     @endforeach
 @stop
 
 
 @section('content')
-    <form action="admin/createPage" method="post">
+    <form action="{{ url('admin').'/createPage' }}" method="post">
         <p>
             <label for="editor">
                 Editor:
