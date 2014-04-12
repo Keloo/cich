@@ -31,3 +31,20 @@ a.nounderline
     max-height: 600px;
     overflow-y: auto;
 }
+
+.new_item a {
+    font-weight: bold;
+    color: #000;
+    text-transform: uppercase;
+    border-bottom: solid 1px #000;
+}
+
+.lab {
+    display: inline-block;
+    width: 70px
+}
+
+.checkbox {
+    width: 50px !important;
+    margin-left: -15px !important;
+}

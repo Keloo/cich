@@ -30,34 +30,19 @@
                 <div class="nav-collapse collapse">
 
                     <ul class="nav">
-                        <li class="active"><a href="#"><i class="icon-home icon-black"></i> Dashboard</a></li>
-
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i
-                                    class="icon-edit icon-black"></i>
-                                Dropdown <b class="caret"></b></a>
-                            <ul class="dropdown-menu">
-                                <li><a href="#">Page One</a></li>
-                                <li><a href="#">Page Two</a></li>
-                                <li><a href="#">Page Three</a></li>
-                            </ul>
-                        </li>
-
-                        <li><a href="#"><i class="icon-user icon-black"></i>Sample 1</a></li>
-                        <li><a href="#"><i class="icon-pencil icon-black"></i>Sample 2</a></li>
-                        <li><a href="#"><i class="icon-file icon-black"></i>Sample 3</a></li>
+                        <li
+                            @if(Request::segment(2) == '')
+                                class="active"
+                            @endif
+                        ><a href="{{ url('admin') }}"><i class="icon-file icon-black"></i> Pages</a></li>
+                        <li
+                             @if(Request::segment(2) == 'menu')
+                                class="active"
+                             @endif
+                        ><a href="{{ url('admin').'/menu' }}"><i class="icon-list icon-black"></i> Menu</a></li>
 
                     </ul>
 
-                    <ul class="nav pull-right settings">
-                        <li class="dropdown">
-                            <ul class="dropdown-menu">
-                                <li><a href="#">Account Settings</a></li>
-                                <li class="divider"></li>
-                                <li><a href="#">System Settings</a></li>
-                            </ul>
-                        </li>
-                    </ul>
 
                     <ul class="nav pull-right settings">
                         <li><a href="#" class="tip icon logout" data-original-title="Settings"
@@ -120,7 +105,7 @@
 <hr>
 
 <footer align="center">
-    <p>Copyright &copy; 2013 <strong>Company Name</strong></p>
+    <p>Copyright &copy; 2014 <strong>CICH</strong></p>
 </footer>
 
 <script src="http://code.jquery.com/jquery-latest.min.js"></script>

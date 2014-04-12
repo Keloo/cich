@@ -11,7 +11,7 @@ class AdminController extends BaseController {
         }
 
         $data = [];
-        $data['pages'] = DB::select("select * from pages");
+        $data['menu'] = DB::select("select * from menu");
 
         return View::make('admin/menu', $data);
     }
@@ -30,6 +30,19 @@ class AdminController extends BaseController {
         $data['pages'] = DB::select("select * from pages");
 
         return View::make('admin/edit', $data);
+    }
+
+
+    public function menuEdit($id = null) {
+        if (!Auth::check()) {
+            return Redirect::to('admin/login');
+        }
+
+        $data = [];
+        $data['currentItem'] = DB::select("SELECT * FROM menu WHERE id = ?", array($id))[0];
+        $data['menu'] = DB::select("SELECT * FROM menu");
+
+        return View::make('admin/editMenu', $data);
     }
 
     /**
@@ -71,8 +84,24 @@ class AdminController extends BaseController {
         }
 
         $pageContent = Input::get('pageText');
+        $pageTitle = Input::get('pageTitle');
 
-        DB::insert("insert into pages (id, text) values (?, ?)", array(null, $pageContent));
+        DB::insert("INSERT INTO pages (id, title, text) VALUES(?, ?, ?)", array(null, $pageTitle, $pageContent));
+
+        return Redirect::to('admin');
+    }
+
+
+    public function updatePage() {
+        if (!Auth::check()) {
+            return Redirect::to('admin/login');
+        }
+
+        $pageContent = Input::get('pageText');
+        $pageTitle = Input::get('pageTitle');
+        $id = Input::get('pageId');
+
+        DB::update("UPDATE pages SET title = ?, text = ? WHERE id = ?", array($pageTitle, $pageContent, $id));
 
         return Redirect::to('admin');
     }
@@ -90,6 +119,25 @@ class AdminController extends BaseController {
 
         DB::insert("insert into menu (id, name, parent_id) values (?, ?, ?)", array(null, $menuName, $parentId));
 
-        return Redirect::to('admin');
+        return Redirect::to('admin/menu');
+    }
+
+    public function updateMenu() {
+        if (!Auth::check()) {
+            return Redirect::to('admin/login');
+        }
+
+        $menuId = Input::get('menuId');
+        $menuName = Input::get('menuName');
+        $parentId = Input::get('parentId');
+        $deleteMenu = Input::get('deleteMenu');
+
+        if (isset($deleteMenu)) {
+            DB::delete("DELETE FROM menu WHERE id = ?", array($menuId));
+        } else {
+            DB::update("UPDATE menu SET name = ?, parent_id = ? WHERE id = ?", array($menuName, $parentId, $menuId));
+        }
+
+        return Redirect::to('admin/menu/');
     }
 }

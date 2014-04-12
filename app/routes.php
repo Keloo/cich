@@ -27,10 +27,20 @@ Route::get('/admin/edit/{id}', function($id) {
     return $adminController->pageEdit($id);
 });
 
+Route::get('/admin/editMenu/{id}', function($id) {
+    $adminController = new AdminController();
+    return $adminController->menuEdit($id);
+});
+
+
 Route::post('/admin/login', 'AdminController@login');
 
 Route::post('/admin/createPage', 'AdminController@createPage');
 
 Route::post('/admin/createMenu', 'AdminController@createMenu');
 
-Route::post('/admin/editPage', 'AdminController@etidPage');
+Route::post('/admin/editPage', 'AdminController@editPage');
+
+Route::post('/admin/updatePage', 'AdminController@updatePage');
+
+Route::post('/admin/updateMenu', 'AdminController@updateMenu');
