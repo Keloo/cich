@@ -105,6 +105,7 @@
                 @foreach ($pages as $page)
                 <li><a href="/admin?action=edit&page={{ $page->id }}">{{ $page->text }}</a></li>
                 @endforeach
+
             </ul>
         </div>
     </div>
