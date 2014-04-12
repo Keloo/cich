@@ -100,10 +100,15 @@
         <div class="well sidebar-nav">
             <ul class="nav nav-tabs nav-stacked">
                 <li class="nav-header">Navigation</li>
-                <li class="active"><a href="admin">Create new Page</a></li>
+                <li><a href="admin">Create new Page</a></li>
                 <li><a href="admin/menu">Create new Menu</a></li>
                 @foreach ($pages as $page)
-                    <li><a href="admin/edit/{{ $page->id }}">{{ $page->text }}</a></li>
+                    <li><a
+                    @if ($currentPage->id == $page->id)
+                        {{ "class='active'" }}
+                    @endif
+
+                    href="admin/edit/{{ $page->id }}">{{ $page->text }}</a></li>
                 @endforeach
             </ul>
         </div>

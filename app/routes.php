@@ -21,6 +21,11 @@ Route::get('/admin/menu', function() {
     return View::make('admin/menu');
 });
 
+Route::get('/admin/edit/{id}', function($id) {
+    $adminController = new AdminController();
+    return $adminController->pageEdit($id);
+});
+
 Route::post('/admin/login', 'AdminController@login');
 
 Route::post('/admin/createPage', 'AdminController@createPage');

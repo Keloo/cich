@@ -2,6 +2,22 @@
 
 class AdminController extends BaseController {
 
+
+    public function pageEdit($id = null) {
+        if (!Auth::check()) {
+            return Redirect::to('admin/login');
+        }
+
+        $data = [];
+        $data['currentPage'] = DB::select("select * from pages where id = ?", array($id))[0];
+        $data['pages'] = DB::select("select * from pages");
+
+        return View::make('admin/edit', $data);
+    }
+
+    /**
+     * @return mixed
+     */
     public function index() {
         if (!Auth::check()) {
             return Redirect::to('admin/login');
