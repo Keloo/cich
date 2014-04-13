@@ -119,9 +119,10 @@ class AdminController extends BaseController {
         }
 
         $menuName = Input::get('menuName');
+        $menuUrl = Input::get('menuUrl');
         $parentId = Input::get('parentId');
 
-        DB::insert("insert into menu (id, name, parent_id) values (?, ?, ?)", array(null, $menuName, $parentId));
+        DB::insert("insert into menu (id, name, url, parent_id) values (?, ?, ?)", array(null, $menuName, $menuUrl, $parentId));
 
         return Redirect::to('admin/menu');
     }
@@ -134,12 +135,13 @@ class AdminController extends BaseController {
         $menuId = Input::get('menuId');
         $menuName = Input::get('menuName');
         $parentId = Input::get('parentId');
+        $menuUrl = Input::get('menuUrl');
         $deleteMenu = Input::get('deleteMenu');
 
         if (isset($deleteMenu)) {
             DB::delete("DELETE FROM menu WHERE id = ?", array($menuId));
         } else {
-            DB::update("UPDATE menu SET name = ?, parent_id = ? WHERE id = ?", array($menuName, $parentId, $menuId));
+            DB::update("UPDATE menu SET name = ?, url = ?, parent_id = ? WHERE id = ?", array($menuName, $menuUrl, $parentId, $menuId));
         }
 
         return Redirect::to('admin/menu/');

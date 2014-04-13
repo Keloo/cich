@@ -18,6 +18,12 @@
     </p>
     <p>
         <label class="lab">
+            URL:
+        </label>
+        <input type="text" name="menuUrl" placeholder="url" value="{{ $currentItem->url }}" />
+    </p>
+    <p>
+        <label class="lab">
             Parinte:
         </label>
         <select name="parentId" id="parentId">
