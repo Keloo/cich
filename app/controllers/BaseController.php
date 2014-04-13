@@ -28,10 +28,10 @@ class BaseController extends Controller {
             $relativeMenu[$value->id]->submenus = DB::select("select * from menu where parent_id = ?", array($value->id));
             foreach ($relativeMenu[$value->id]->submenus as $key => $submenu) {
                 if (!$submenu->url) {
-//                    $pageForSubmenu = DB::select("select * from pages where menu_id = ?", array($submenu->id));
-//                    if ($pageForSubmenu) {
-//                        $relativeMenu[$value->id]->submenus[$key]->page = $pageForSubmenu[0];
-//                    }
+                    $pageForSubmenu = DB::select("select * from pages where menu_id = ?", array($submenu->id));
+                    if ($pageForSubmenu) {
+                        $relativeMenu[$value->id]->submenus[$key]->page = $pageForSubmenu[0];
+                    }
                 }
             }
         }

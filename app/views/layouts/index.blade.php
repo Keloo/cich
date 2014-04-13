@@ -48,7 +48,7 @@
                                         <li><hr class="orange-line-menu"/></li>
                                         @foreach($menu->submenus as $submenu)
                                             <li><a href=
-                                            @if (isset($submenu->url))
+                                            @if ($submenu->url)
                                                 {{ $submenu->url }}
                                             @elseif (isset($submenu->page->id))
                                                 {{ url('page/'.$submenu->page->id) }}
