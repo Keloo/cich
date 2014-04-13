@@ -22,13 +22,15 @@ CREATE TABLE `pages` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `title` varchar(50) CHARACTER SET utf8 NOT NULL,
   `text` longtext CHARACTER SET utf8 NOT NULL,
+  `menu_id` int(11) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
-INSERT INTO `pages` (`id`, `title`, `text`) VALUES
-(6,	'Test',	'<p>content</p>\r\n'),
-(7,	'page_title',	'<p>page_content</p>\r\n'),
-(8,	'page_35',	'<p>dkasl;kjflhd kja</p>\r\n');
+INSERT INTO `pages` (`id`, `title`, `text`, `menu_id`) VALUES
+(6,	'Test',	'<p>content</p>\r\n',	0),
+(7,	'page_title',	'<p>page_content</p>\r\n',	0),
+(8,	'page_35',	'<p>dkasl;kjflhd kja</p>\r\n',	0),
+(9,	'page_menu_test',	'<p>page_menu_test_content</p>\r\n',	4);
 
 DROP TABLE IF EXISTS `users`;
 CREATE TABLE `users` (
@@ -41,4 +43,4 @@ CREATE TABLE `users` (
 INSERT INTO `users` (`id`, `username`, `password`) VALUES
 (1,	'root',	'$2y$10$JXXB.EZfMEnNMq6KZm.vy.dC7OQoZfVOGsN9pfQYBvxOwUPiGRUi6');
 
--- 2014-04-12 18:07:17
+-- 2014-04-13 14:36:47

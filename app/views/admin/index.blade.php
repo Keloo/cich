@@ -12,11 +12,21 @@
 @section('content')
     <form action="{{ url('admin').'/createPage' }}" method="post">
         <p>
-            <label for="editor">
-                <input type="text" name="pageTitle" placeholder="titlu" />
-            </label>
+            <input type="text" name="pageTitle" placeholder="titlu" />
+        </p>
+        <p>
             <textarea class="ckeditor" cols="80" id="editor" name="pageText" rows="10"></textarea>
         </p>
+        <p>
+            <label class="inline hint">Menu*:</label>
+            <select name="menuId">
+                <option value="0"></option>
+                @foreach ($menu as $item)
+                    <option value="{{ $item->id }}">{{ $item->name }}</option>
+                @endforeach
+            </select>
+        </p>
+
         <p>
             <input type="submit" value="Adauga">
         </p>

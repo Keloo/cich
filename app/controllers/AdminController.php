@@ -27,6 +27,7 @@ class AdminController extends BaseController {
 
         $data = [];
         $data['currentPage'] = DB::select("select * from pages where id = ?", array($id))[0];
+        $data['menu'] = DB::select("SELECT * FROM menu");
         $data['pages'] = DB::select("select * from pages");
 
         return View::make('admin/edit', $data);
@@ -55,6 +56,7 @@ class AdminController extends BaseController {
 
         $data = [];
         $data['pages'] = DB::select("select * from pages");
+        $data['menu'] = DB::select("SELECT * FROM menu");
 
         return View::make('admin/index', $data);
     }
@@ -85,8 +87,9 @@ class AdminController extends BaseController {
 
         $pageContent = Input::get('pageText');
         $pageTitle = Input::get('pageTitle');
+        $menuId = Input::get('menuId');
 
-        DB::insert("INSERT INTO pages (id, title, text) VALUES(?, ?, ?)", array(null, $pageTitle, $pageContent));
+        DB::insert("INSERT INTO pages (id, title, text, menu_id) VALUES(?, ?, ?, ?)", array(null, $pageTitle, $pageContent, $menuId));
 
         return Redirect::to('admin');
     }
@@ -100,8 +103,9 @@ class AdminController extends BaseController {
         $pageContent = Input::get('pageText');
         $pageTitle = Input::get('pageTitle');
         $id = Input::get('pageId');
+        $menuId = Input::get('menuId');
 
-        DB::update("UPDATE pages SET title = ?, text = ? WHERE id = ?", array($pageTitle, $pageContent, $id));
+        DB::update("UPDATE pages SET title = ?, text = ?, menu_id = ? WHERE id = ?", array($pageTitle, $pageContent, $menuId, $id));
 
         return Redirect::to('admin');
     }

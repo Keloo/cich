@@ -32,6 +32,11 @@ Route::get('/admin/editMenu/{id}', function($id) {
     return $adminController->menuEdit($id);
 });
 
+Route::get('/admin/logout', function() {
+    Auth::logout();
+    return View::make('admin/login');
+});
+
 
 Route::post('/admin/login', 'AdminController@login');
 

@@ -45,11 +45,10 @@
 
 
                     <ul class="nav pull-right settings">
-                        <li><a href="#" class="tip icon logout" data-original-title="Settings"
-                               data-placement="bottom"><i class="icon-large icon-cog"></i></a></li>
-                        <li class="divider-vertical"></li>
-                        <li><a href="#" class="tip icon logout" data-original-title="Logout" data-placement="bottom"><i
-                                    class="icon-large icon-off"></i></a></li>
+                        <li><a href="{{ url('admin').'/logout' }}" class="tip icon logout" data-original-title="Logout"
+                                    data-placement="bottom">
+                             <i class="icon-large icon-off"></i></a>
+                        </li>
                     </ul>
 
                     <ul class="nav pull-right settings">
@@ -63,15 +62,6 @@
                     <ul class="nav pull-right settings">
                         <li class="divider-vertical"></li>
                     </ul>
-
-                    <div class="pull-right">
-                        <form class="form-search form-inline" style="margin:5px 0 0 0;" method="post">
-                            <div class="input-append">
-                                <input type="text" name="keyword" class="span2 search-query" placeholder="Search">
-                                <button type="submit" class="btn"><i class="icon-search"></i></button>
-                            </div>
-                        </form>
-                    </div>
 
                 </div>
                 <!--/.nav-collapse -->
