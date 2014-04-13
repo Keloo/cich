@@ -4,8 +4,9 @@ Route::get('/', function() {
     return View::make('index');
 });
 
-Route::get('/page', function() {
-    return View::make('page');
+Route::get('/page/{id}', function($id) {
+    $baseController = new BaseController();
+    return $baseController->page($id);
 });
 
 Route::get('/admin', array('before' => 'adminAuth', function () {

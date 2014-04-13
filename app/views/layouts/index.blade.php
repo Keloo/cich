@@ -35,43 +35,24 @@
             <div class="row">
                 <div class="col-md-offset-3 col-md-8 main-menu text-center">
                     <ul class="nav nav-tabs">
-                        <li><a href="#">Principala</a></li>
-                        <li class="dropdown">
-                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                                Informatii <span class="caret"></span>
-                            </a>
-                            <ul class="dropdown-menu">
-                                <li><hr class="orange-line-menu"/></li>
-                                <li><a href="#">Submenu-1</a></li>
-                                <li><a href="#">Submenu-2</a></li>
-                                <li><a href="#">Submenu-3</a></li>
-                            </ul>
-                        </li>
-                        <li class="dropdown">
-                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                                Instruire <span class="caret"></span>
-                            </a>
-                            <ul class="dropdown-menu">
-                                <li><hr class="orange-line-menu"/></li>
-                            </ul>
-                        </li>
-                        <li class="dropdown">
-                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                                Admitere <span class="caret"></span>
-                            </a>
-                            <ul class="dropdown-menu">
-                                <li><hr class="orange-line-menu"/></li>
-                            </ul>
-                        </li>
-                        <li class="dropdown">
-                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                                Studenti <span class="caret"></span>
-                            </a>
-                            <ul class="dropdown-menu">
-                                <li><hr class="orange-line-menu"/></li>
-                            </ul>
-                        </li>
-                        <li><a href="#">Contacte </a></li>
+                        @foreach ($relativeMenu as $menu)
+                            <li class="dropdown">
+                                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                                    {{ $menu->name }}
+                                    @if ($menu->submenus)
+                                        <span class="caret"></span>
+                                    @endif
+                                </a>
+                                @if ($menu->submenus)
+                                    <ul class="dropdown-menu">
+                                        <li><hr class="orange-line-menu"/></li>
+                                        @foreach($menu->submenus as $submenu)
+                                            <li><a href="{{ url('page/'.$submenu->page->id) }}">{{ $submenu->name }}</a></li>
+                                        @endforeach
+                                    </ul>
+                                @endif
+                            </li>
+                        @endforeach
                     </ul>
                 </div>
             </div>
