@@ -122,7 +122,7 @@ class AdminController extends BaseController {
         $menuUrl = Input::get('menuUrl');
         $parentId = Input::get('parentId');
 
-        DB::insert("insert into menu (id, name, url, parent_id) values (?, ?, ?)", array(null, $menuName, $menuUrl, $parentId));
+        DB::insert("insert into menu (id, name, url, parent_id) values (?, ?, ?, ?)", array(null, $menuName, $menuUrl, $parentId));
 
         return Redirect::to('admin/menu');
     }

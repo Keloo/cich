@@ -47,7 +47,15 @@
                                     <ul class="dropdown-menu">
                                         <li><hr class="orange-line-menu"/></li>
                                         @foreach($menu->submenus as $submenu)
-                                            <li><a href="{{ url('page/'.$submenu->page->id) }}">{{ $submenu->name }}</a></li>
+                                            <li><a href=
+                                            @if (isset($submenu->url))
+                                                {{ $submenu->url }}
+                                            @elseif (isset($submenu->page->id))
+                                                {{ url('page/'.$submenu->page->id) }}
+                                            @else
+                                                {{ '#' }}
+                                            @endif
+                                            {{ '>'.$submenu->name.'</a></li>' }}
                                         @endforeach
                                     </ul>
                                 @endif

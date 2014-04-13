@@ -24,21 +24,26 @@ class BaseController extends Controller {
 
         $relativeMenu = array();
         foreach($menus as $value) {
-            $relativeMenu[$value->id] = new stdClass();
-            $relativeMenu[$value->id]->name = $value->name;
+            $relativeMenu[$value->id] = $value;
             $relativeMenu[$value->id]->submenus = DB::select("select * from menu where parent_id = ?", array($value->id));
             foreach ($relativeMenu[$value->id]->submenus as $key => $submenu) {
-                $relativeMenu[$value->id]->submenus[$key]->page = DB::select("select * from pages where menu_id = ?", array($submenu->id))[0];
+                if (!$submenu->url) {
+//                    $pageForSubmenu = DB::select("select * from pages where menu_id = ?", array($submenu->id));
+//                    if ($pageForSubmenu) {
+//                        $relativeMenu[$value->id]->submenus[$key]->page = $pageForSubmenu[0];
+//                    }
+                }
             }
-
         }
-        $pages = DB::select("select * from pages");
+
+//        echo '<pre>';
+//        var_dump($relativeMenu);
+//        die();
         $currentPage = DB::select("select * from pages where id = ?", array($id))[0];
 
 
         $data = array();
         $data['relativeMenu'] = $relativeMenu;
-        $data['pages'] = $pages;
         $data['currentPage'] = $currentPage;
 
         return View::make('page', $data);
