@@ -8,14 +8,15 @@ SET sql_mode = 'NO_AUTO_VALUE_ON_ZERO';
 DROP TABLE IF EXISTS `menu`;
 CREATE TABLE `menu` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `name` varchar(255) CHARACTER SET utf8 NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `url` varchar(255) NOT NULL,
   `parent_id` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-INSERT INTO `menu` (`id`, `name`, `parent_id`) VALUES
-(4,	'Home',	0),
-(5,	'main',	4);
+INSERT INTO `menu` (`id`, `name`, `url`, `parent_id`) VALUES
+(4,	'Home',	'',	0),
+(5,	'main',	'http://',	4);
 
 DROP TABLE IF EXISTS `pages`;
 CREATE TABLE `pages` (
@@ -43,4 +44,4 @@ CREATE TABLE `users` (
 INSERT INTO `users` (`id`, `username`, `password`) VALUES
 (1,	'root',	'$2y$10$JXXB.EZfMEnNMq6KZm.vy.dC7OQoZfVOGsN9pfQYBvxOwUPiGRUi6');
 
--- 2014-04-13 14:36:47
+-- 2014-04-13 18:23:21
