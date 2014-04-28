@@ -222,7 +222,7 @@
                 </div>
                 <div class="col-md-2 text-right">
                     <a href="/cich/public/ro">RO</a>
-                    <a href="/cich/public/ro">EN</a>
+                    <a href="/cich/public/en">EN</a>
                 </div>
             </div>
             <div class="row">

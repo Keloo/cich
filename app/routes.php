@@ -5,6 +5,14 @@ Route::get('/', function() {
     return $baseController->index();
 });
 
+
+Route::get('/{lang}', function($lang) {
+    $baseController = new BaseController();
+    Session::put('lang', $lang);
+    return $baseController->index();
+});
+
+
 Route::get('/page/{id}', function($id) {
     $baseController = new BaseController();
     return $baseController->page($id);

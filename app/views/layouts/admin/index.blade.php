@@ -44,7 +44,7 @@
                         @if(Request::segment(2) == 'events')
                         class="active"
                         @endif
-                        ><a href="{{ url('admin').'/events' }}"><i class="icon-list icon-black"></i> Events</a></li>
+                        ><a href="{{ url('admin').'/events' }}"><i class="icon-list-alt icon-black"></i> Events</a></li>
 
                     </ul>
 
