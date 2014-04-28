@@ -74,4 +74,14 @@ class BaseController extends Controller {
         return View::make('main', $data);
     }
 
+    
+    public function search() {
+        $searchText = Input::get('search_text');
+
+        $result = DB::select("select * from pages where text like ?", array('%'. $searchText .'%'));
+
+        var_dump($result);
+        die();
+    }
+
 }

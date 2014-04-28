@@ -10,12 +10,17 @@ Route::get('/admin', array('before' => 'adminAuth', function () {
     return $adminController->index();
 }));
 
+Route::post('search', function() {
+    $baseController = new BaseController();
+    return $baseController->search();
+});
 
 Route::get('/{lang}', function($lang) {
     $baseController = new BaseController();
     Session::put('lang', $lang);
     return $baseController->index();
 });
+
 
 
 Route::get('/page/{id}', function($id) {

@@ -210,7 +210,7 @@
                 <div class="col-md-offset-8 col-md-4 text-right links">
                     <a href="#">Avize</a> |
                     <a href="#">Harta</a> |
-                    <a href="#">Galerie</a> |
+                    <a href="{{ url('gallery/index.php') }}">Galerie</a> |
                     <a href="#">Informatii</a> |
                     <a href="#">Studenti</a> |
                     <a href="15">Contacte</a>
@@ -291,9 +291,9 @@
                 <a href="http://orar.cich.md/">Orar</a>
             </div>
             <div class="col-md-4">
-                <form class="navbar-form text-right" role="search">
+                <form class="navbar-form text-right" role="search" action="{{ url('search') }}" method="post">
                     <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Search">
+                        <input type="text" name="search_text" class="form-control" placeholder="Search">
                     </div>
                     <button type="submit" class="btn btn-default">Submit</button>
                 </form>
