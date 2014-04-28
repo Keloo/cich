@@ -52,17 +52,17 @@ return array(
 			'prefix'   => '',
 		),
 
-        'mysql' => array(
-            'driver'    => 'mysql',
-            'host'      => 'ns14.host-md.net',
-            'database'  => '3032-cich',
-            'username'  => '3032-cich',
-            'password'  => 'Vlad-123-Negura',
-            'charset'   => 'utf8',
-            'collation' => 'utf8_unicode_ci',
-            'prefix'    => '',
-        ),
-        
+		'mysql' => array(
+			'driver'    => 'mysql',
+			'host'      => 'web2.host-md.net',
+			'database'  => '3032-cich',
+			'username'  => '3032-cich@web2.host-md.net',
+			'password'  => 'Vlad-123-Negura',
+			'charset'   => 'utf8',
+			'collation' => 'utf8_unicode_ci',
+			'prefix'    => '',
+		),
+
 		'pgsql' => array(
 			'driver'   => 'pgsql',
 			'host'     => 'localhost',
@@ -100,5 +100,3 @@ return array(
 
 	/*
 	|-------------------------------------------
-	*/
-);
