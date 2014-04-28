@@ -31,7 +31,7 @@ class AdminController extends BaseController {
         $eventTitleEn = Input::get('eventTitleEn');
 
 
-        DB::insert("INSERT INTO events (id, title, title_en, content, content_en) VALUES(?, ?, ?, ?, ?)", array(null, $eventTitle, $eventTitleEn, $eventContent, $eventContentEn));
+        DB::insert("INSERT INTO events (id, title, title_en, content, content_en, date) VALUES(?, ?, ?, ?, ?, NOW())", array(null, $eventTitle, $eventTitleEn, $eventContent, $eventContentEn));
 
         return Redirect::to('admin/events');
     }

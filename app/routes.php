@@ -5,6 +5,11 @@ Route::get('/', function() {
     return $baseController->index();
 });
 
+Route::get('/admin', array('before' => 'adminAuth', function () {
+    $adminController = new AdminController();
+    return $adminController->index();
+}));
+
 
 Route::get('/{lang}', function($lang) {
     $baseController = new BaseController();
@@ -18,10 +23,6 @@ Route::get('/page/{id}', function($id) {
     return $baseController->page($id);
 });
 
-Route::get('/admin', array('before' => 'adminAuth', function () {
-    $adminController = new AdminController();
-    return $adminController->index();
-}));
 
 Route::get('/admin/login', function() {
     return View::make('admin/login');
