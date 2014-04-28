@@ -230,13 +230,13 @@
                     <ul class="nav nav-tabs">
                         @foreach ($relativeMenu as $menu)
                             <li class="dropdown">
-                                <a class="dropdown-toggle" data-toggle="dropdown" href="
-                                            @if ($menu->url)
-                                                {{ $menu->url }}
+                                <a class="dropdown-toggle"
+                                            @if (!$menu->submenus && $menu->url)
+                                                href="{{ $menu->url }}"
                                             @else
-                                                #
+                                                data-toggle="dropdown" href="#"
                                             @endif
-                                    ">
+                                    >
                                     {{ $menu->name }}
                                     @if ($menu->submenus)
                                         <span class="caret"></span>
