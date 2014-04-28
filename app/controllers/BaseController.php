@@ -16,10 +16,9 @@ class BaseController extends Controller {
 	}
 
     /**
-     * @return mixed
+     * @return array
      */
-    public function page($id)
-    {
+    protected function getMenu() {
         $menus = DB::select("select * from menu where parent_id = 0");
 
         $relativeMenu = array();
@@ -36,52 +35,46 @@ class BaseController extends Controller {
             }
         }
 
-//        echo '<pre>';
-//        var_dump($relativeMenu);
-//        die();
+        return $relativeMenu;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function page($id)
+    {
         $currentPage = DB::select("select * from pages where id = ?", array($id))[0];
 
-
         $data = array();
-        $data['relativeMenu'] = $relativeMenu;
+        $data['relativeMenu'] = $this->getMenu();
         $data['currentPage'] = $currentPage;
 
         return View::make('page', $data);
     }
 
     public function index() {
-        $menus = DB::select("select * from menu where parent_id = 0");
         $events = DB::select("SELECT * FROM events ORDER BY id DESC");
 
-        $relativeMenu = array();
-        foreach($menus as $value) {
-            $relativeMenu[$value->id] = $value;
-            $relativeMenu[$value->id]->submenus = DB::select("select * from menu where parent_id = ?", array($value->id));
-            foreach ($relativeMenu[$value->id]->submenus as $key => $submenu) {
-                if (!$submenu->url) {
-                    $pageForSubmenu = DB::select("select * from pages where menu_id = ?", array($submenu->id));
-                    if ($pageForSubmenu) {
-                        $relativeMenu[$value->id]->submenus[$key]->page = $pageForSubmenu[0];
-                    }
-                }
-            }
-        }
-
         $data = array();
-        $data['relativeMenu'] = $relativeMenu;
+        $data['relativeMenu'] = $this->getMenu();
         $data['events'] = $events;
 
         return View::make('main', $data);
     }
 
-    
+    /**
+     * @return mixed
+     */
     public function search() {
         $searchText = Input::get('search_text');
 
         $result = DB::select("select * from pages where text like ?", array('%'. $searchText .'%'));
 
-        var_dump($result);
-        die();
+        $data = array();
+        $data['relativeMenu'] = $this->getMenu();
+        $data['pages'] = $result;
+
+        return View::make('search', $data);
     }
 
 }
