@@ -221,8 +221,8 @@
                     <a href="http://cic.cich.md/public/page/11"><img src="{{ asset('assets/images/header_logo.png') }}" title="CICH Logo" alt="CICH Logo" class="img-responsive"/></a>
                 </div>
                 <div class="col-md-2 text-right">
-                    <a href="#">RO</a>
-                    <a href="#">EN</a>
+                    <a href="/cich/public/ro">RO</a>
+                    <a href="/cich/public/en">EN</a>
                 </div>
             </div>
             <div class="row">
@@ -237,7 +237,11 @@
                                                 data-toggle="dropdown" href="#"
                                             @endif
                                     >
-                                    {{ $menu->name }}
+                                    @if (Session::get('lang') == 'en')
+                                        {{ $menu->name_en }}
+                                    @else
+                                        {{ $menu->name }}
+                                    @endif
                                     @if ($menu->submenus)
                                         <span class="caret"></span>
                                     @endif
@@ -255,7 +259,11 @@
 														{{ '#' }}
 													@endif
 												">
-													{{ $submenu->name }}
+                                                @if (Session::get('lang') == 'en')
+                                                    {{ $submenu->name_en }}
+                                                @else
+                                                    {{ $submenu->name }}
+                                                @endif
 												</a>
 												
 											  </li>
@@ -345,22 +353,30 @@
         </div>
     </div>
 </div>
-<div class="pre-content">
-    <div class="container">
-        <div class="row">
-        </div>
-    </div>
-</div>
 
-<div class="content">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-10 col-md-offset-1">
-                @yield('content')
+
+@if (Request::path() != '/' && Request::path() != 'en' && Request::path() != 'ro')
+
+    <div class="pre-content">
+        <div class="container">
+            <div class="row">
             </div>
         </div>
     </div>
-</div>
+
+    <div class="content">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-10 col-md-offset-1">
+                    @yield('content')
+                </div>
+            </div>
+        </div>
+    </div>
+
+@else
+    @yield('main')
+@endif
 
 <hr class="orange-line"/>
 <div class="pre-footer">

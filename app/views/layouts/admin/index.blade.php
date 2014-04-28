@@ -40,6 +40,11 @@
                                 class="active"
                              @endif
                         ><a href="{{ url('admin').'/menu' }}"><i class="icon-list icon-black"></i> Menu</a></li>
+                        <li
+                        @if(Request::segment(2) == 'events')
+                        class="active"
+                        @endif
+                        ><a href="{{ url('admin').'/events' }}"><i class="icon-list-alt icon-black"></i> Events</a></li>
 
                     </ul>
 
@@ -72,7 +77,7 @@
 
 <div class="row-fluid">
     <div class="span2 pull-left">
-        <div class="well sidebar-nav">
+        <div class="well sidebar-nav menu-admin">
             <ul class="nav nav-tabs nav-stacked">
                 @yield('menu')
             </ul>

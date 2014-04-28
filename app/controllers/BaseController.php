@@ -51,6 +51,7 @@ class BaseController extends Controller {
 
     public function index() {
         $menus = DB::select("select * from menu where parent_id = 0");
+        $events = DB::select("SELECT * FROM events ORDER BY id DESC");
 
         $relativeMenu = array();
         foreach($menus as $value) {
@@ -68,8 +69,9 @@ class BaseController extends Controller {
 
         $data = array();
         $data['relativeMenu'] = $relativeMenu;
+        $data['events'] = $events;
 
-        return View::make('index', $data);
+        return View::make('main', $data);
     }
 
 }
