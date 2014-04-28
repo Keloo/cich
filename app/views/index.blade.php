@@ -3,20 +3,38 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="{{ asset('http://code.jquery.com/jquery-latest.min.js') }}"></script>
+	
     <link href="assets/css/bootstrap.css" rel="stylesheet">
     <link href="assets/css/style.css" rel="stylesheet">
 
 
+	 <link href="{{ asset('assets/css/bootstrap.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets/css/style.css') }}" rel="stylesheet">
+	
+	 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="{{ asset('assets/js/bootstrap.js') }}"></script> 
+	
     <script src="packages/fancybox/jquery-1.4.3.min.js"></script>
-    <script src="assets/js/bootstrap.js"></script>
+    <script src="assets/js/bootstrap.js"></script> <!---->
 
 
     <script type="text/javascript" src="packages/fancybox/fancybox/jquery.mousewheel-3.0.4.pack.js"></script>
     <script type="text/javascript" src="packages/fancybox/fancybox/jquery.fancybox-1.3.4.pack.js"></script>
     <link rel="stylesheet" type="text/css" href="packages/fancybox/fancybox/jquery.fancybox-1.3.4.css" media="screen" />
 
+	
+	
+	
+	 
+   
+  
+ 
 
-    <script>
+		
+	
+	
+	
+	<script>
 
         $(document).ready(function() {
             /*
@@ -196,6 +214,8 @@
     </script>
 
 
+
+    
 
 </head>
 <body>

@@ -1,15 +1,208 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  
     <link href="{{ asset('assets/css/bootstrap.css') }}" rel="stylesheet">
     <link href="{{ asset('assets/css/style.css') }}" rel="stylesheet">
+  
+   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="{{ asset('assets/js/bootstrap.js') }}"></script><!-- -->
+
+	<script src="../packages/fancybox/jquery-1.4.3.min.js"></script>
+	<script type="text/javascript" src="../packages/fancybox/fancybox/jquery.fancybox-1.3.4.pack.js"></script>
+	
+   <script type="text/javascript" src="../packages/fancybox/fancybox/jquery.mousewheel-3.0.4.pack.js"></script>
+   
+    <link rel="stylesheet" type="text/css" href="../packages/fancybox/fancybox/jquery.fancybox-1.3.4.css" media="screen" />
+	
+	
+	
+<script>
+  $(document).ready(function() {
+            /*
+             *  Simple image gallery. Uses default settings
+             */
+
+            $('.fancybox').fancybox();
+
+            /*
+             *  Different effects
+             */
+
+            // Change title type, overlay closing speed
+            $(".fancybox-effects-a").fancybox({
+                helpers: {
+                    title : {
+                        type : 'outside'
+                    },
+                    overlay : {
+                        speedOut : 100
+                    }
+                }
+            });
+
+            // Disable opening and closing animations, change title type
+            $(".fancybox-effects-b").fancybox({
+                openEffect  : 'none',
+                closeEffect	: 'none',
+
+                helpers : {
+                    title : {
+                        type : 'over'
+                    }
+                }
+            });
+
+            // Set custom style, close if clicked, change title type and overlay color
+            $(".fancybox-effects-c").fancybox({
+                wrapCSS    : 'fancybox-custom',
+                closeClick : true,
+
+                openEffect : 'none',
+
+                helpers : {
+                    title : {
+                        type : 'inside'
+                    },
+                    overlay : {
+                        css : {
+                            'background' : 'rgba(238,238,238,0.85)'
+                        }
+                    }
+                }
+            });
+
+            // Remove padding, set opening and closing animations, close if clicked and disable overlay
+            $(".fancybox-effects-d").fancybox({
+                padding: 0,
+
+                openEffect : 'elastic',
+                openSpeed  : 150,
+
+                closeEffect : 'elastic',
+                closeSpeed  : 150,
+
+                closeClick : true,
+
+                helpers : {
+                    overlay : null
+                }
+            });
+
+            /*
+             *  Button helper. Disable animations, hide close button, change title type and content
+             */
+
+            $('.fancybox-buttons').fancybox({
+                openEffect  : 'none',
+                closeEffect : 'none',
+
+                prevEffect : 'none',
+                nextEffect : 'none',
+
+                closeBtn  : false,
+
+                helpers : {
+                    title : {
+                        type : 'inside'
+                    },
+                    buttons	: {}
+                },
+
+                afterLoad : function() {
+                    this.title = 'Image ' + (this.index + 1) + ' of ' + this.group.length + (this.title ? ' - ' + this.title : '');
+                }
+            });
 
 
-    <script src="{{ asset('http://code.jquery.com/jquery-latest.min.js') }}"></script>
-    <script src="{{ asset('assets/js/bootstrap.js') }}"></script>
+            /*
+             *  Thumbnail helper. Disable animations, hide close button, arrows and slide to next gallery item if clicked
+             */
+
+            $('.fancybox-thumbs').fancybox({
+                prevEffect : 'none',
+                nextEffect : 'none',
+
+                closeBtn  : false,
+                arrows    : false,
+                nextClick : true,
+
+                helpers : {
+                    thumbs : {
+                        width  : 50,
+                        height : 50
+                    }
+                }
+            });
+
+            /*
+             *  Media helper. Group items, disable animations, hide arrows, enable media and button helpers.
+             */
+            $('.fancybox-media')
+                .attr('rel', 'media-gallery')
+                .fancybox({
+                    openEffect : 'none',
+                    closeEffect : 'none',
+                    prevEffect : 'none',
+                    nextEffect : 'none',
+
+                    arrows : false,
+                    helpers : {
+                        media : {},
+                        buttons : {}
+                    }
+                });
+
+            /*
+             *  Open manually
+             */
+
+            $("#fancybox-manual-a").click(function() {
+                $.fancybox.open('1_b.jpg');
+            });
+
+            $("#fancybox-manual-b").click(function() {
+                $.fancybox.open({
+                    href : 'iframe.html',
+                    type : 'iframe',
+                    padding : 5
+                });
+            });
+
+            $("#fancybox-manual-c").click(function() {
+                $.fancybox.open([
+                    {
+                        href : '1_b.jpg',
+                        title : 'My title'
+                    }, {
+                        href : '2_b.jpg',
+                        title : '2nd title'
+                    }, {
+                        href : '3_b.jpg'
+                    }
+                ], {
+                    helpers : {
+                        thumbs : {
+                            width: 75,
+                            height: 50
+                        }
+                    }
+                });
+            });
+
+
+        });
+
+    </script>
+
 </head>
 <body>
+
+
 <div class="header">
     <div class="container">
         <div class="header">
@@ -20,12 +213,12 @@
                     <a href="#">Galerie</a> |
                     <a href="#">Informatii</a> |
                     <a href="#">Studenti</a> |
-                    <a href="#">Contacte</a>
+                    <a href="15">Contacte</a>
                 </div>
             </div>
             <div class="row">
                 <div class="col-md-10">
-                    <img src="{{ asset('assets/images/header_logo.png') }}" title="CICH Logo" alt="CICH Logo" class="img-responsive"/>
+                    <a href="http://cic.cich.md/public/page/11"><img src="{{ asset('assets/images/header_logo.png') }}" title="CICH Logo" alt="CICH Logo" class="img-responsive"/></a>
                 </div>
                 <div class="col-md-2 text-right">
                     <a href="#">RO</a>
@@ -33,7 +226,7 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-offset-3 col-md-8 main-menu text-center">
+                <div class="col-md-offset-3 col-md-8 main-menu text-left">
                     <ul class="nav nav-tabs">
                         @foreach ($relativeMenu as $menu)
                             <li class="dropdown">
@@ -51,17 +244,21 @@
                                 </a>
                                 @if ($menu->submenus)
                                     <ul class="dropdown-menu">
-                                        <li><hr class="orange-line-menu"/></li>
+                                      <li>        <hr class="orange-line-menu"/>     </li>  
                                         @foreach($menu->submenus as $submenu)
-                                            <li><a href=
-                                            @if ($submenu->url)
-                                                {{ $submenu->url }}
-                                            @elseif (isset($submenu->page->id))
-                                                {{ url('page/'.$submenu->page->id) }}
-                                            @else
-                                                {{ '#' }}
-                                            @endif
-                                            {{ '>'.$submenu->name.'</a></li>' }}
+                                                <li> <a href="
+													@if ($submenu->url)
+														{{ $submenu->url }}
+													@elseif (isset($submenu->page->id))
+														{{ url('page/'.$submenu->page->id) }}
+													@else
+														{{ '#' }}
+													@endif
+												">
+													{{ $submenu->name }}
+												</a>
+												
+											  </li>
                                         @endforeach
                                     </ul>
                                 @endif
@@ -80,10 +277,10 @@
     <div class="container">
         <div class="row">
             <div class="col-md-8">
-                <a href="#">INFORMARE</a> |
-                <a href="#">Lectii Web</a> |
-                <a href="#">Forum</a> |
-                <a href="#">Orar</a>
+                 INFORMARE |
+                <a href="http://ciobanu.cich.md/">Lectii Web</a> |
+                <a href="http://cich.md/forum/">Forum</a> |
+                <a href="http://orar.cich.md/">Orar</a>
             </div>
             <div class="col-md-4">
                 <form class="navbar-form text-right" role="search">
@@ -170,11 +367,21 @@
     <div class="container">
         <div class="row">
             <div class="col-md-2 col-md-offset-5">
-                <img class="img-responsive icon" alt="Twitter" src="{{ asset('assets/images/twitter-icon.png') }}">
-                <img class="img-responsive icon" alt="Facebook" src="{{ asset('assets/images/facebook-icon.png') }}">
-                <img class="img-responsive icon" alt="Youtube" src="{{ asset('assets/images/youtube-icon.png') }}">
-                <img class="img-responsive icon" alt="Wifi" src="{{ asset('assets/images/wifi-icon.png') }}">
-            </div>
+			
+			               <a href="http://twitter.com/cichmd" target="_blank" ><img class="img-responsive icon" alt="Twitter"   onmouseover="this.src='/public/assets/images/twitter-icon1.png'"      onmouseout="this.src='/public/assets/images/twitter-icon.png'"          src="{{ asset('assets/images/twitter-icon.png') }}"></a>
+                           <a href="https://www.facebook.com/cichmd" target="_blank"><img class="img-responsive icon" alt="Facebook"   onmouseover="this.src='/public/assets/images/facebook-icon1.png'"    onmouseout="this.src='/public/assets/images/facebook-icon.png'" src="{{ asset('assets/images/facebook-icon.png') }}"></a>
+                           <a href="http://youtube.com/cichmd" target="_blank"><img class="img-responsive icon" alt="Youtube"   onmouseover="this.src='/public/assets/images/youtube-icon1.png'"   onmouseout="this.src='/public/assets/images/youtube-icon.png'"       src="{{ asset('assets/images/youtube-icon.png') }}"></a>
+                           <a href="#"> <img class="img-responsive icon" alt="Wifi"  onmouseover="this.src='/public/assets/images/wifi-icon1.png'"    onmouseout="this.src='/public/assets/images/wifi-icon.png'"    src="{{ asset('assets/images/wifi-icon.png') }}"></a>
+
+			<!--
+			
+			
+               <a href="http://twitter.com/cichmd" target="_blank" ><img class="img-responsive icon" alt="Twitter" src="{{ asset('assets/images/twitter-icon.png') }}"></a>
+               <a href="https://www.facebook.com/cichmd" target="_blank"><img class="img-responsive icon" alt="Facebook" src="{{ asset('assets/images/facebook-icon.png') }}"></a>
+                <a href="http://youtube.com/cichmd" target="_blank"><img class="img-responsive icon" alt="Youtube" src="{{ asset('assets/images/youtube-icon.png') }}"></a>
+               <a href="#"> <img class="img-responsive icon" alt="Wifi" src="{{ asset('assets/images/wifi-icon.png') }}"></a>
+           -->
+		   </div>
         </div>
     </div>
 </div>
@@ -188,27 +395,27 @@
             </div>
             <div class="col-md-3 border-left">
                 Studenti <br>
-                Specialitati <br>
+                <a href="http://cic.cich.md/public/page/12">Specialitati <br></a>
                 Catedre <br>
                 Campus <br>
-                Comitetul Sindical <br>
+                <a href="http://cic.cich.md/public/page/7">Comitetul Sindical <br></a>
                 Galerie <br>
             </div>
             <div class="col-md-3 border-left">
-                Managementul educational<br>
-                Instruirea practica <br>
-                Informatii <br>
-                Succesele discipolilor <br>
+             <a href="http://cic.cich.md/public/page/6">Managementul educational<br></a>
+             <a href="http://cic.cich.md/public/page/14">  Instruirea practica <br></a>
+                      Informatii <br>
+             <a href="http://cic.cich.md/public/page/20">Succesele discipolilor <br></a>
                 Admitere <br>
                 Harta <br>
             </div>
             <div class="col-md-2 border-left">
-                Burse <br>
+               <a href="http://cic.cich.md/public/page/26">Burse <br></a>
                 Examene de absolvire <br>
-                Regulamentul <br>
-                Forum <br>
-                Absolventi <br>
-                Oferte locuri de munca <br>
+                <a href="http://cic.cich.md/public/page/10">Regulamentul <br></a>
+                <a href="http://cich.md/forum/">Forum <br></a>
+                <a href="http://cic.cich.md/public/page/27">Absolventi <br></a>
+               <a href="http://cic.cich.md/public/page/28"> Oferte locuri de munca <br></a>
             </div>
         </div>
         <br>
