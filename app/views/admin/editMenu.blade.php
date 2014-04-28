@@ -18,6 +18,12 @@
     </p>
     <p>
         <label class="lab">
+            Denumire (EN):
+        </label>
+        <input type="text" name="menuNameEn" placeholder="denumire" value="{{ $currentItem->name_en }}" />
+    </p>
+    <p>
+        <label class="lab">
             URL:
         </label>
         <input type="text" name="menuUrl" placeholder="url" value="{{ $currentItem->url }}" />

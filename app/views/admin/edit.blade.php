@@ -15,12 +15,25 @@
 @section('content')
     <form action="{{ url('admin').'/updatePage' }}" method="post">
         <p>
+            <label><strong>RO:</strong></label>
             <input type="hidden" name="pageId" value="{{ $currentPage->id }} " />
             <input type="text" name="pageTitle" value="{{ $currentPage->title }}" placeholder="titlu" /><br/>
         </p>
         <p>
             <textarea class="ckeditor" cols="80" id="editor" name="pageText" rows="10">{{ $currentPage->text }}</textarea>
         </p>
+
+        <br/><br/>
+
+        <p>
+            <label><strong>EN:</strong></label>
+            <input type="text" name="pageTitleEn" placeholder="titlu (en)" value="{{ $currentPage->title_en }}" />
+        </p>
+        <p>
+            <textarea class="ckeditor" cols="80" id="editor" name="pageTextEn" rows="10">{{ $currentPage->text_en }}</textarea>
+        </p>
+
+        <br/>
         <p>
             <label class="inline hint">Menu*:</label>
             <select name="menuId">

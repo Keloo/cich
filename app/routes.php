@@ -18,6 +18,16 @@ Route::get('/admin/login', function() {
     return View::make('admin/login');
 });
 
+Route::get('/admin/events', function() {
+    $adminController = new AdminController();
+    return $adminController->events();
+});
+
+Route::get('/admin/editEvent/{id}', function($id) {
+    $adminController = new AdminController();
+    return $adminController->editEvent($id);
+});
+
 Route::get('/admin/menu', function() {
     $adminController = new AdminController();
     return $adminController->menu();
@@ -40,6 +50,10 @@ Route::get('/admin/logout', function() {
 
 
 Route::post('/admin/login', 'AdminController@login');
+
+Route::post('/admin/addEvent', 'AdminController@addEvent');
+
+Route::post('/admin/updateEvent', 'AdminController@updateEvent');
 
 Route::post('/admin/createPage', 'AdminController@createPage');
 

@@ -221,8 +221,8 @@
                     <a href="http://cic.cich.md/public/page/11"><img src="{{ asset('assets/images/header_logo.png') }}" title="CICH Logo" alt="CICH Logo" class="img-responsive"/></a>
                 </div>
                 <div class="col-md-2 text-right">
-                    <a href="#">RO</a>
-                    <a href="#">EN</a>
+                    <a href="/cich/public/ro">RO</a>
+                    <a href="/cich/public/ro">EN</a>
                 </div>
             </div>
             <div class="row">

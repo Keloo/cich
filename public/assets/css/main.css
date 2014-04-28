@@ -56,3 +56,10 @@ a.nounderline
 .hint {
     font-size: 16px;
 }
+
+
+.menu-admin {
+    position: fixed;
+    height: 550px;
+    overflow-y: auto;
+}

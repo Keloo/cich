@@ -12,11 +12,25 @@
 @section('content')
     <form action="{{ url('admin').'/createPage' }}" method="post">
         <p>
+            <label><strong>RO:</strong></label>
             <input type="text" name="pageTitle" placeholder="titlu" />
         </p>
         <p>
             <textarea class="ckeditor" cols="80" id="editor" name="pageText" rows="10"></textarea>
         </p>
+
+        <br/><br/>
+
+        <p>
+            <label><strong>EN:</strong></label>
+            <input type="text" name="pageTitleEn" placeholder="titlu (en)" />
+        </p>
+        <p>
+            <textarea class="ckeditor" cols="80" id="editor" name="pageTextEn" rows="10"></textarea>
+        </p>
+
+
+        <br/>
         <p>
             <label class="inline hint">Menu*:</label>
             <select name="menuId">
