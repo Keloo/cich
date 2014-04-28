@@ -1,7 +1,8 @@
 <?php
 
 Route::get('/', function() {
-    return View::make('index');
+    $baseController = new BaseController();
+    return $baseController->index();
 });
 
 Route::get('/page/{id}', function($id) {
