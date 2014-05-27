@@ -54,10 +54,10 @@ return array(
 
 		'mysql' => array(
 			'driver'    => 'mysql',
-			'host'      => 'localhost',
+			'host'      => 'web2.host-md.net',
 			'database'  => '3032-cich',
-			'username'  => 'root',
-			'password'  => '',
+			'username'  => '3032-cich@web2.host-md.net',
+			'password'  => 'Vlad-123-Negura',
 			'charset'   => 'utf8',
 			'collation' => 'utf8_unicode_ci',
 			'prefix'    => '',
@@ -100,5 +100,3 @@ return array(
 
 	/*
 	|-------------------------------------------
-	*/
-);
