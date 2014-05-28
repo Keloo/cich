@@ -203,6 +203,30 @@ div.ex:hover{
     background-color:#fe5b00;
 }
 
+.event {
+    border-bottom: solid 1px #000;
+    margin-bottom: 20px;
+}
+
+.event_title {
+    background-color: rgba(254, 91, 0, 1);
+    font-size: 16px;
+    font-weight: bold;
+    color: #fff;
+    padding: 5px;
+}
+
+.event_date {
+    font-size: 12px;
+    padding: 5px;
+}
+
+.event_content {
+    margin-bottom: 10px;
+    padding-left: 30px;
+}
+
+
 
 
 

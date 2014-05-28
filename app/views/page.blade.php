@@ -1,5 +1,6 @@
 @extends('layouts.index')
 
+
 @section('content')
     @if (Session::get('lang') == 'en')
         {{ $currentPage->text_en }}

@@ -54,10 +54,10 @@ return array(
 
 		'mysql' => array(
 			'driver'    => 'mysql',
-			'host'      => 'ns14.host-md.net',
+			'host'      => 'localhost',
 			'database'  => '3032-cich',
-			'username'  => '3032-cich',
-			'password'  => 'Vlad-123-Negura',
+			'username'  => 'root',
+			'password'  => '',
 			'charset'   => 'utf8',
 			'collation' => 'utf8_unicode_ci',
 			'prefix'    => '',

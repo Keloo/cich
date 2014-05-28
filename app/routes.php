@@ -15,12 +15,21 @@ Route::post('search', function() {
     return $baseController->search();
 });
 
+Route::get('/events', function() {
+    $baseController = new BaseController();
+    return $baseController->events();
+});
+
+Route::get('/events/{id}', function($id) {
+    $baseController = new BaseController();
+    return $baseController->events($id);
+});
+
 Route::get('/{lang}', function($lang) {
     $baseController = new BaseController();
     Session::put('lang', $lang);
     return $baseController->index();
 });
-
 
 
 Route::get('/page/{id}', function($id) {

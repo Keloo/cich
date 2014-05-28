@@ -53,8 +53,7 @@ class BaseController extends Controller {
     }
 
     public function index() {
-        $events = DB::select("SELECT * FROM events ORDER BY id DESC");
-
+        $events = DB::select("SELECT * FROM (SELECT * FROM events ORDER BY id DESC LIMIT 3) AS events ORDER BY id");
         $data = array();
         $data['relativeMenu'] = $this->getMenu();
         $data['events'] = $events;
@@ -75,6 +74,28 @@ class BaseController extends Controller {
         $data['pages'] = $result;
 
         return View::make('search', $data);
+    }
+
+
+    public function events($id = null) {
+
+        $result = null;
+        $articleId = "1";
+
+        $result = DB::select("SELECT * FROM events");
+
+        if($id != null) {
+            $articleId = DB::select("SELECT * FROM events WHERE id = ?", array($id))[0];
+            $articleId = $articleId->id;
+        }
+
+        $data = array();
+        $data['relativeMenu'] = $this->getMenu();
+        $data['events'] = $result;
+        $data['articleId'] = $articleId;
+
+        return View::make('events', $data);
+
     }
 
 }

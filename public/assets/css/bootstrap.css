@@ -7153,3 +7153,8 @@ td.visible-print {
     display: none !important;
   }
 }
+
+
+ul.nav li.dropdown:hover > ul.dropdown-menu {
+    display: block;
+}
