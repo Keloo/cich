@@ -40,7 +40,9 @@ $(document).ready(function() {
 </head>
 <body>
 
-<p>&nbsp;</p>
+ <p>&nbsp;</p>  
+
+
 
 <div class="gallery">  
   <?php include "folio-gallery.php"; ?>

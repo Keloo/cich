@@ -35,40 +35,7 @@ Abstract
           US-ASCII,
 
     (2)   an extensible set of different formats for non-textual
-          message bodies,
-
-    (3)   multi-part message bodies, and
-
-    (4)   textual header information in character sets other than
-          US-ASCII.
-
-   These documents are based on earlier work documented in RFC 934, STD
-   11, and RFC 1049, but extends and revises them.  Because RFC 822 said
-   so little about message bodies, these documents are largely
-   orthogonal to (rather than a revision of) RFC 822.
-
-   The initial document in this set, RFC 2045, specifies the various
-   headers used to describe the structure of MIME messages. The second
-   document defines the general structure of the MIME media typing
-   system and defines an initial set of media types.  The third
-   document, RFC 2047, describes extensions to RFC 822 to allow non-US-
-
-
-
-Freed & Borenstein          Standards Track                     [Page 1]
-
-RFC 2049                    MIME Conformance               November 1996
-
-
-   ASCII text data in Internet mail header fields. The fourth document,
-   RFC 2048, specifies various IANA registration procedures for MIME-
-   related facilities. This fifth and final document describes MIME
-   conformance criteria as well as providing some illustrative examples
-   of MIME message formats, acknowledgements, and the bibliography.
-
-   These documents are revisions of RFCs 1521, 1522, and 1590, which
-   themselves were revisions of RFCs 1341 and 1342.  Appendix B of this
-   document describes differences and changes from previous versions.
+          messagd changes from previous versions.
 
 Table of Contents
 
