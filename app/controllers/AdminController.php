@@ -6,7 +6,7 @@ class AdminController extends BaseController {
      * @return mixed
      */
 
-    public function events() {
+    public function events($id = null) {
         if (!Auth::check()) {
             return Redirect::to('admin/login');
         }

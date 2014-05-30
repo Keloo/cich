@@ -94,15 +94,27 @@
                 <div align="left" class="col-md-4 text-center ex " style="
     height: 45px;
 	border-left: 1px solid #575757;
-"> 
-AVIZE &amp; EVENIMENTE
+">
+                    <a href="#events">
+                        @if (Session::get('lang') == 'en')
+                            Notices & Events
+                        @else
+                            AVIZE &amp; EVENIMENTE
+                        @endif
+                    </a>
                 </div>
               </a>
                <a href="#">
                 <div align="center" class="col-md-4 text-center border ex " style="
     height: 45px;
 ">
-VIATA IN COLEGIU
+                    <a href="#life">
+                        @if (Session::get('lang') == 'en')
+                            LIFE IN COLLEGE
+                        @else
+                            VIATA IN COLEGIU
+                        @endif
+                    </a>
                 </div>
               </a>
               <a href="#">
@@ -110,7 +122,13 @@ VIATA IN COLEGIU
     height: 45px;
 	border-right: 1px solid #575757;
 ">
-STUDIAZA LA NOI
+                    <a href="#study">
+                        @if (Session::get('lang') == 'en')
+                            STUDY WITH US
+                        @else
+                            STUDIAZA LA NOI
+                        @endif
+                    </a>
                 </div>
               </a>
            
@@ -134,7 +152,13 @@ STUDIAZA LA NOI
                 <div class="col-md-10">
                     <div class="row grey-line">
                         <div class="col-md-12">
-                            <h3>Avize & Evenimente</h3>
+                            <h3 id="events">
+                                @if (Session::get('lang') == 'en')
+                                    Notices & Events
+                                @else
+                                    AVIZE &amp; EVENIMENTE
+                                @endif
+                            </h3>
                         </div>
                     </div>
                     <br/>
@@ -185,21 +209,18 @@ STUDIAZA LA NOI
                                 @foreach($events as $event)
                                 <div class="grey-line">
                                     <h5>
-                                        @if (Session::get('lang') == 'en')
-                                            {{ $event->title_en }}
-                                        @else
-                                            {{ $event->title }}
-                                        @endif
-                                        ({{ date("d/m/Y", strtotime($event->date)) }})
+                                        <a href="{{ url('events/' . $event->id ) }}">
+                                            @if (Session::get('lang') == 'en')
+                                                {{ $event->title_en }}
+                                            @else
+                                                {{ $event->title }}
+                                            @endif
+                                        </a>
                                     </h5>
-                                    @if (Session::get('lang') == 'en')
-                                        {{ substr($event->content_en, 0, 100) }}
-                                    @else
-                                        {{ substr($event->content, 0, 100) }}
-                                    @endif
-                                <b><a href="{{ url('events/' . $event->id ) }}">...</a></b></div>
+                                </div>
                                 @endforeach
-                                <a href="{{ url('events') }}">Toate noutatile</a>
+                                <br/>
+                                <a href="{{ url('events') }}">Toate avizele</a>
                                 <br>
                             </div>
                         </div>
@@ -236,7 +257,13 @@ STUDIAZA LA NOI
                 <div class="col-md-10">
                     <div class="row grey-line">
                         <div class="col-md-12">
-                            <h3>VIATA IN COLEGIUL DE INFORMATICA</h3>
+                            <h3 id="life">
+                                @if (Session::get('lang') == 'en')
+                                    LIFE IN COLLEGE OF INFORMATICS
+                                @else
+                                    VIATA IN COLEGIUL DE INFORMATICA
+                                @endif
+                            </h3>
                         </div>
                     </div>
                     <br/>
@@ -276,7 +303,13 @@ STUDIAZA LA NOI
         <div class="container">
             <div class="row grey-line">
                 <div class="col-md-12">
-                    <h3>STUDIAZA LA COLEGIUL DE INFORMATICA</h3>
+                    <h3 id="study">
+                        @if (Session::get('lang') == 'en')
+                            STUDY AT THE COLLEGE OF INFORMATICS
+                        @else
+                            STUDIAZA LA COLEGIUL DE INFORMATICA
+                        @endif
+                    </h3>
                 </div>
             </div>
             <br/>

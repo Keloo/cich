@@ -87,6 +87,7 @@ class BaseController extends Controller {
         if($id != null) {
             $articleId = DB::select("SELECT * FROM events WHERE id = ?", array($id))[0];
             $articleId = $articleId->id;
+            $result = DB::select("SELECT * FROM events WHERE id = ?", array($id));
         }
 
         $data = array();
