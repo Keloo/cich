@@ -3,7 +3,8 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>
-  <?php 
+  <?php
+  error_reporting(0);
     if (isset($_GET['album'])) {
 	  echo $_GET['album'];
 	} else {
@@ -11,6 +12,20 @@
 	}
   ?>
 </title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="../assets/css/bootstrap.css" rel="stylesheet">
+<link href="../assets/css/style.css" rel="stylesheet">
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script src="../assets/js/bootstrap.js"></script><!-- -->
+
+<script src="../packages/fancybox/jquery-1.4.3.min.js"></script>
+<script type="text/javascript" src="../packages/fancybox/fancybox/jquery.fancybox-1.3.4.pack.js"></script>
+
+<script type="text/javascript" src="../packages/fancybox/fancybox/jquery.mousewheel-3.0.4.pack.js"></script>
+
+<link rel="stylesheet" type="text/css" href="../packages/fancybox/fancybox/jquery.fancybox-1.3.4.css" media="screen" />
 
 <!-- start gallery header --> 
 <link rel="stylesheet" type="text/css" href="folio-gallery.css" />
@@ -43,10 +58,14 @@ $(document).ready(function() {
  <p>&nbsp;</p>  
 
 
+<div class="container">
+    <div class="row">
+        <div class="gallery">
+            <?php include "folio-gallery.php"; ?>
+        </div>
+    </div>
+</div>
 
-<div class="gallery">  
-  <?php include "folio-gallery.php"; ?>
-</div>   
 
 </body>
 </html>

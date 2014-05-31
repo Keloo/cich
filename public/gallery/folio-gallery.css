@@ -11,7 +11,7 @@ color:#222;
 .gallery {
 position:relative;
 overflow:hidden;
-width:530px;
+width:600px;
 margin:15px auto;
 padding:50px;
 background:#ededed;
@@ -50,7 +50,7 @@ font-weight:400;
 .gallery .thumb-album {
 overflow:hidden;
 width:150px;
-height:130px;
+height:140px;
 float:left;
 margin:8px;
 padding:5px;
