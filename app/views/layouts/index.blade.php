@@ -218,7 +218,7 @@
                 <div class="col-md-offset-8 col-md-4 text-right links">
                     <a href="#">Avize</a> |
                     <a href="/public/page/39">Harta</a> |
-                    <a href="{{ url('gallery/index.php') }}">Galerie</a> |
+                    <a href="{{ url('galerie') }}">Galerie</a> |
                     <a href="#">Informatii</a> |
                     <a href="#">Studenti</a> |
                     <a href="15">Contacte</a>
@@ -624,7 +624,7 @@
                 Catedre <br>
                 Campus <br>
                 <a  href="http://cic.cich.md/public/page/7">Comitetul Sindical <br></a>
-                 <a  href="{{ url('gallery/index.php') }}"> Galerie <br></a>
+                 <a  href="{{ url('galerie') }}"> Galerie <br></a>
             </div>
             <div class="col-md-3 border-left">
              <a  href="http://cic.cich.md/public/page/6">Managementul educational<br></a>

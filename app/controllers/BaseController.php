@@ -52,6 +52,15 @@ class BaseController extends Controller {
         return View::make('page', $data);
     }
 
+    public function gallery() {
+        $events = DB::select("SELECT * FROM (SELECT * FROM events ORDER BY id DESC LIMIT 3) AS events ORDER BY id");
+        $data = array();
+        $data['relativeMenu'] = $this->getMenu();
+        $data['events'] = $events;
+
+        return View::make('gallery', $data);
+    }
+
     public function index() {
         $events = DB::select("SELECT * FROM (SELECT * FROM events ORDER BY id DESC LIMIT 3) AS events ORDER BY id");
         $data = array();

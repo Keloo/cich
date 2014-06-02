@@ -13,27 +13,13 @@
   ?>
 </title>
 
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link href="../assets/css/bootstrap.css" rel="stylesheet">
-<link href="../assets/css/style.css" rel="stylesheet">
-
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-<script src="../assets/js/bootstrap.js"></script><!-- -->
-
-<script src="../packages/fancybox/jquery-1.4.3.min.js"></script>
-<script type="text/javascript" src="../packages/fancybox/fancybox/jquery.fancybox-1.3.4.pack.js"></script>
-
-<script type="text/javascript" src="../packages/fancybox/fancybox/jquery.mousewheel-3.0.4.pack.js"></script>
-
-<link rel="stylesheet" type="text/css" href="../packages/fancybox/fancybox/jquery.fancybox-1.3.4.css" media="screen" />
-
 <!-- start gallery header --> 
-<link rel="stylesheet" type="text/css" href="folio-gallery.css" />
-<script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
+<link rel="stylesheet" type="text/css" href="gallery/folio-gallery.css" />
+<script type="text/javascript" src="gallery/js/jquery-1.9.1.min.js"></script>
 
-<link rel="stylesheet" type="text/css" href="colorbox/colorbox.css" />
+<link rel="stylesheet" type="text/css" href="gallery/colorbox/colorbox.css" />
 <!--<link rel="stylesheet" type="text/css" href="fancybox/fancybox.css" />-->
-<script type="text/javascript" src="colorbox/jquery.colorbox-min.js"></script>
+<script type="text/javascript" src="gallery/colorbox/jquery.colorbox-min.js"></script>
 <!--<script type="text/javascript" src="fancybox/jquery.fancybox-1.3.1.min.js"></script>-->
 <script type="text/javascript">
 $(document).ready(function() {	
@@ -58,12 +44,8 @@ $(document).ready(function() {
  <p>&nbsp;</p>  
 
 
-<div class="container">
-    <div class="row">
-        <div class="gallery">
-            <?php include "folio-gallery.php"; ?>
-        </div>
-    </div>
+<div class="gallery">
+    <?php include "folio-gallery.php"; ?>
 </div>
 
 

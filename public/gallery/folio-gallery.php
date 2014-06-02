@@ -1,7 +1,7 @@
-<?php 
+<?php
 // error_reporting (E_ALL ^ E_NOTICE);
 // photo gallery settings
-$mainFolder    = 'albums';   // folder where your albums are located - relative to root
+$mainFolder    = 'gallery/albums';   // folder where your albums are located - relative to root
 $albumsPerPage = '12';       // number of albums per page
 $itemsPerPage  = '12';       // number of images per page    
 $thumb_width   = '150';      // width of thumbnails
@@ -122,18 +122,18 @@ if (!isset($_GET['album'])) {
 	     for( $i=$start; $i<$start + $albumsPerPage; $i++ ) {
 	  
 	        if( isset($albums[$i]) ) {
-			 		 			 
+
 			    echo '<div class="thumb-album shadow">
 				        
 						<div class="thumb-wrapper">
-						   <a href="'.$_SERVER['PHP_SELF'].'?album='. urlencode($albums[$i]) .'">
+						   <a href="'.$_SERVER['REQUEST_URI'].'?album='. urlencode($albums[$i]) .'">
 			                 <img src="'. $random_pics[$i] .'" width="'.$thumb_width.'" alt="" />
 						   </a>	
 					    </div>
 						
 						<div class="p5"></div>
 					    
-						<a href="'.$_SERVER['PHP_SELF'].'?album='. urlencode($albums[$i]) .'">
+						<a href="'.$_SERVER['REQUEST_URI'].'?album='. urlencode($albums[$i]) .'">
 						<span class="caption">'. $captions[$i] .'</span>
 						</a>
 		            
@@ -208,8 +208,10 @@ if (!isset($_GET['album'])) {
 
    $start = ( $currentPage * $itemsPerPage ) - $itemsPerPage;
 
+   $allAlbumsUrl = explode('?', $_SERVER['REQUEST_URI'])[0];
+
    echo '<div class="titlebar">
-           <div class="float-left"><span class="title">'. $_GET['album'] .'</span> - <a href="'.$_SERVER['PHP_SELF'].'">View All Albums</a></div>
+           <div class="float-left"><span class="title">'. $_GET['album'] .'</span> - <a href="'.$allAlbumsUrl.'">View All Albums</a></div>
            <div class="float-right">'.count($files).' images</div>
          </div>';	  
    echo '<div class="clear"></div>';

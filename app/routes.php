@@ -1,5 +1,11 @@
 <?php
 
+
+Route::get('/galerie', function() {
+    $baseController = new BaseController();
+    return $baseController->gallery();
+});
+
 Route::get('/', function() {
     $baseController = new BaseController();
     return $baseController->index();
