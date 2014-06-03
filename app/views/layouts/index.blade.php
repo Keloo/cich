@@ -210,7 +210,6 @@
 </head>
 <body>
 
-
 <div class="header">
 <div class="container">
 <div class="header">
@@ -336,7 +335,12 @@
                         <hr class="orange-line-menu"/>
                     </li>
                     @foreach($menu->submenus as $submenu)
-                    <li><a href="
+
+                    <li
+                        @if($submenu->submenus)
+                            class='dropdown-submenu'
+                        @endif
+                        ><a href="
 													@if ($submenu->url)
 														{{ $submenu->url }}
 													@elseif (isset($submenu->page->id))
@@ -351,7 +355,31 @@
                             {{ $submenu->name }}
                             @endif
                         </a>
-
+                        @if ($submenu->submenus)
+                        <ul class="dropdown-menu">
+                            <li>
+                                <hr class="orange-line-menu"/>
+                            </li>
+                            @foreach($submenu->submenus as $subsubmenu)
+                            <li><a href="
+													@if ($subsubmenu->url)
+														{{ $subsubmenu->url }}
+													@elseif (isset($subsubmenu->page->id))
+														{{ url('page/'.$subsubmenu->page->id) }}
+													@else
+														{{ '#' }}
+													@endif
+												">
+                                    @if (Session::get('lang') == 'en')
+                                    {{ $subsubmenu->name_en }}
+                                    @else
+                                    {{ $subsubmenu->name }}
+                                    @endif
+                                </a>
+                            </li>
+                            @endforeach
+                        </ul>
+                        @endif
                     </li>
                     @endforeach
                 </ul>
@@ -690,6 +718,8 @@
     <iframe src="http://www.facebook.com/plugins/like_box.php?app_id=342284119215820&amp;channel=http%3A%2F%2Fstatic.ak.facebook.com%2Fconnect%2Fxd_arbiter%2FV80PAcvrynR.js%3Fversion%3D41%23cb%3Df240c147dc%26domain%3Dcich.md%26origin%3Dhttp%253A%252F%252Fcich.md%252Ff32e918018%26relation%3Dparent.parent&amp;header=false&amp;height=280&amp;href=http%3A%2F%2Fwww.facebook.com%2Fcich.md&amp;locale=en_US&amp;sdk=joey&amp;show_faces=true&amp;stream=false&amp;width=234" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:292px; height:260px;" allowtransparency="true">
     </iframe>
 </div>
+
+
 
 
 </body>
