@@ -218,11 +218,8 @@
         <a href="#">Avize</a> |
         <a href="/public/page/39">Harta</a> |
         <a href="{{ url('galerie') }}">Galerie</a> |
-        <a href="#">Informatii</a> |
-        <a href="#">Studenti</a> |
         <a href="15">Contacte</a>
         <!--Facebook botton in page start -->
-        <a href="#" data-toggle="modal" data-target="#fcontactModal">Facebook</a>
 
         <div class="modal fade" id="fcontactModal" tabindex="-1" role="dialog" aria-labelledby="contactModalLavel"
              aria-hidden="true" style="display: none;">
@@ -639,24 +636,19 @@
                      class="img-responsive">
             </div>
             <div class="col-md-3 border-left">
-                Studenti <br>
                 <a href="http://cic.cich.md/public/page/12">Specialitati <br></a>
-                Catedre <br>
-                Campus <br>
                 <a href="http://cic.cich.md/public/page/7">Comitetul Sindical <br></a>
                 <a href="{{ url('galerie') }}"> Galerie <br></a>
+                <a href="http://cic.cich.md/public/page/39">Harta <br></a>
             </div>
             <div class="col-md-3 border-left">
                 <a href="http://cic.cich.md/public/page/6">Managementul educational<br></a>
                 <a href="http://cic.cich.md/public/page/14"> Instruirea practica <br></a>
-                Informatii <br>
                 <a href="http://cic.cich.md/public/page/20">Succesele discipolilor <br></a>
-                Admitere <br>
-                Harta <br>
+                <a href="http://cic.cich.md/public/page/26">Burse <br></a>
+
             </div>
             <div class="col-md-2 border-left">
-                <a href="http://cic.cich.md/public/page/26">Burse <br></a>
-                Examene de absolvire <br>
                 <a href="http://cic.cich.md/public/page/10">Regulamentul <br></a>
                 <a href="http://cich.md/forum/">Forum <br></a>
                 <a href="http://cic.cich.md/public/page/27">Absolventi <br></a>

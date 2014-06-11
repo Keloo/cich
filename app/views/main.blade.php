@@ -227,25 +227,9 @@
                         <br>
                     </div>
                     <br>
-                    <div class="row">
-                        <div class="col-md-6 thumbnail shadow">
-                            <img src="{{ URL::asset('assets/images/example.jpg') }}" alt="Example image" class="img-responsive img-float-left">
-                            asfasdf asdf a sdf asd fa sdf a sdf a sdf asd fa sd f
-                        </div>
-                        <div class="col-md-3">
-                            <div class="thumbnail shadow">
-                                <img class="img-responsive" src="{{ URL::asset('assets/images/example.jpg') }}" alt="Example Image">
-                                <div class="caption">
-                                    asdf asdf a sdf a
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-3">
-                        </div>
-                    </div>
+
                 </div>
             </div>
-            <div class="col-md-1"></div><!-- just for margin right and maintain repsonsive. -->
         </div>
     </div>
     <hr class="orange-line"/>

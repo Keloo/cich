@@ -103,6 +103,8 @@ class BaseController extends Controller {
 
         $result = DB::select("SELECT * FROM events");
 
+        $all_events = DB::select("SELECT * FROM events");
+
         if($id != null) {
             $articleId = DB::select("SELECT * FROM events WHERE id = ?", array($id))[0];
             $articleId = $articleId->id;
@@ -113,6 +115,7 @@ class BaseController extends Controller {
         $data['relativeMenu'] = $this->getMenu();
         $data['events'] = $result;
         $data['articleId'] = $articleId;
+        $data['allEvents'] = $all_events;
 
         return View::make('events', $data);
 
